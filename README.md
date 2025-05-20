@@ -1,39 +1,111 @@
-<h1 align="center"> Projeto IBM Expectativas Mercado Anuais </h1>
+# 📊 Expectativas de Mercado – Análise de Dados Econômicos com Spring Boot
 
-Este projeto tem como objetivo buscar, salvar, atualizar e deletar dados que foram consumidos da Api Externa do Governo
-- Expectativas de Mercado Anuais - 
+Este projeto simula uma API para o gerenciamento e análise de expectativas econômicas anuais, com base em dados do Banco Central (BACEN). O objetivo é exercitar a construção de um backend RESTful, com leitura de dados externos, modelagem de entidades financeiras, persistência em banco de dados e exposição de dados via API.
 
-- Feito por Akemi Samantha Nakayama 
+---
 
-<h3 align="left"> ✔️ Tecnologias Utilizadas  </h3>
-Java JDK 11
-InteliJ IDEA
-Paradigma de orientação a objetos
-Spring Framework
-Spring Boot
-JPA Hibernate
-Maven
+## 🎯 Objetivo do projeto
 
-# Principais Dependencias Utilizadas 
-Spring Boot DevTools DEVELOPER TOOLS
-Provides fast application restarts, LiveReload, and configurations for enhanced development experience.
+- Realizar ingestão e persistência de dados econômicos históricos (PIB, IPCA, Selic etc.)
+- Simular o comportamento de uma API de dados financeiros nacionais
+- Aplicar práticas modernas de desenvolvimento backend com **Spring Boot**
+- Praticar a leitura e tratamento de arquivos CSV no backend
+- Expor dados por meio de **endpoints RESTful estruturados e organizados**
 
-Lombok DEVELOPER TOOLS
-Java annotation library which helps to reduce boilerplate code.
+---
 
-Spring Web WEB
-Build web, including RESTful, applications using Spring MVC. Uses Apache Tomcat as the default embedded container.
+## 🧠 Contexto dos dados
 
-Spring Data JPA SQL
-Persist data in SQL stores with Java Persistence API using Spring Data and Hibernate.
+Os dados foram extraídos da base pública do Banco Central e simulam:
 
-MySQL Driver SQL
-MySQL JDBC and R2DBC driver.
+- Expectativas anuais de **PIB**
+- Variações do **IPCA**
+- Projeções de **Selic** e indicadores macroeconômicos
+- Análises por **ano base** e categorias econômicas
 
-OpenFeign SPRING CLOUD ROUTING
-Declarative REST Client. OpenFeign creates a dynamic implementation of an interface decorated with JAX-RS or Spring MVC annotations.
+---
 
-Model Mapper 
+## 🛠️ Tecnologias utilizadas
+
+- **Java 11**
+- **Spring Boot**
+- **Spring Data JPA**
+- **Spring Web**
+- **H2 Database** (para testes locais)
+- **Apache Commons CSV** (leitura de arquivos)
+- **Lombok**
+- **Maven**
+
+---
+
+## 🧱 Arquitetura
+
+O projeto segue uma arquitetura simples baseada em camadas:
+
+controller → service → repository → model
+
+
+### 📂 Estrutura de pacotes:
+
+src/
+└── main/
+└── java/
+└── com/akemi/expectativas/
+├── controller/
+├── service/
+├── model/
+└── repository/
+
+
+- `controller/` → expõe os endpoints REST
+- `service/` → lida com regras de negócio, leitura do CSV e lógica de filtro
+- `model/` → contém as entidades representando os dados econômicos
+- `repository/` → interfaces do Spring Data JPA
+
+---
+
+## 🗂️ Funcionalidades implementadas
+
+- Leitura automatizada de arquivos `.csv` com dados anuais
+- Armazenamento estruturado no banco H2 local
+- Endpoints para listagem, busca por ano, filtro por indicador econômico
+- Organização de resposta por DTOs
+- Testes e validações básicas no backend
+
+---
+
+## ▶️ Como executar o projeto
+
+1. Clone o repositório  
+   `git clone https://github.com/Akemi-Samantha/ExpectativasMercadoAnuais`
+
+2. Importe na sua IDE (IntelliJ recomendado)
+
+3. Execute o projeto com:  
+   `./mvnw spring-boot:run`  
+   ou via IDE
+
+4. Acesse os endpoints via Postman, Insomnia ou navegador
+
+---
+
+## 🔍 Exemplos de endpoints
+
+- `GET /expectativas` → lista todas as expectativas carregadas
+- `GET /expectativas?ano=2020` → filtra por ano
+- `GET /expectativas?indicador=IPCA` → filtra por indicador específico
+- `POST /expectativas/upload` → upload de novo CSV (em desenvolvimento)
+
+---
+
+## 💡 Destaques técnicos
+
+- Uso de **Apache Commons CSV** para parsing de arquivos estruturados
+- Organização em **camadas bem definidas**
+- Modelo de dados desacoplado da estrutura original do arquivo
+- Ponto de partida para análise de dados financeiros via backend
+
+---
 
 
 # :hammer: Funcionalidades do projeto
@@ -79,7 +151,6 @@ Apos a clonagem sera importante criar uma conexao em um banco relacional de sua 
 O MySql deve estar instalado e configurado em sua maquina local.
 Baixe uma IDE compativel para linguagem Java JDK 11 -> Para esta aplicacao foi utilizada a IDE IntelliJ - Spring Boot - Construtor Maven -
 Em seguida entre na classe application.properties
-  <img width="324" alt="image" src="https://media.github.ibm.com/user/404080/files/7be9b7f4-3c12-4054-aae7-cc004d3220a2">
  
 # Configure estes campos 
   spring.datasource.username=userName
@@ -90,7 +161,18 @@ Em seguida entre na classe application.properties
 
 # Finalizando todas estas configuracoes esta pronto para subir a aplicacao.
 - Va na classe ExpectativasMercadoAnuaisApplication.
-<img width="942" alt="image" src="https://media.github.ibm.com/user/404080/files/25832ce2-33dc-4d36-8156-0727291b37ad">
 - Na setinha verde ao lado do metodo clique em...
-  <img width="250" alt="image" src="https://media.github.ibm.com/user/404080/files/43732a3c-cf74-4315-82a4-e38e31c9779d">
 - Assim ira subir a aplicacao e estara criando uma tabela relacional em seu banco de dados.
+
+## ✨ Sobre
+
+Este projeto foi desenvolvido de forma autoral como estudo prático, inspirado em dados reais do BACEN.  
+Serviu como base para aplicar arquitetura em camadas, estruturação de domínio e integração de dados externos em uma API REST com Spring Boot.
+
+---
+
+## 👩‍💻 Por Akemi Samantha Nakayama
+
+🔗 [LinkedIn](https://www.linkedin.com/in/akemi-samantha-nakayama-121622206/)  
+🐙 [GitHub](https://github.com/Akemi-Samantha)
+
