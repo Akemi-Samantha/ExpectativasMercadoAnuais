@@ -1,6 +1,10 @@
-# 📊 Expectativas de Mercado – Análise de Dados Econômicos com Spring Boot
+# 📊 Expectativas de Mercado Anuais – API REST com dados econômicos
 
-Este projeto simula uma API para o gerenciamento e análise de expectativas econômicas anuais, com base em dados do Banco Central (BACEN). O objetivo é exercitar a construção de um backend RESTful, com leitura de dados externos, modelagem de entidades financeiras, persistência em banco de dados e exposição de dados via API.
+Este projeto foi desenvolvido como parte da **Trilha de Java no projeto Itaú, via IBM**, com o objetivo de consolidar conhecimentos em **desenvolvimento backend com Spring Boot**.  
+
+Durante o exercício, foi proposto simular a criação de uma API RESTful para ingestão e análise de expectativas econômicas anuais com base em dados públicos extraídos do Banco Central (BACEN).
+
+A aplicação envolve leitura e tratamento de arquivos CSV, modelagem de domínio, persistência com JPA, estruturação em camadas e exposição de filtros via endpoints RESTful.
 
 ---
 
